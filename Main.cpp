@@ -1,5 +1,17 @@
 #include "Memory.h"
-#include "Cheats.h"
+#include "Cheats.static 
+
+void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info)
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+       main();
+    });
+}
+
+__attribute__((constructor)) static void initialize()
+{
+    CFNotificationCenterAddObserver(CFNotificationCenterGetLocalCenter(), NULL, &didFinishLaunching, (CFStringRef)UIApplicationDidFinishLaunchingNotification, NULL, CFNotificationSuspensionBehaviorDrop);
+}
 
 
 int main()
