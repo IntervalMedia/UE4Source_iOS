@@ -5,13 +5,42 @@
 #include <vector>
 #include <dlfcn.h>
 
-//ADD IN YOUR OWN KERNEL STUFF, ReadProcessMemory will get you banned
+bool IsValid(long addr) {
+    return addr > 0x100000000 && addr < 0x3000000000;
+}
+
+bool IsValidAddress(long addr) {
+    return addr > 0x100000000 && addr < 0x3000000000;
+}
+
+bool _read(long addr, void *buffer, int len)
+{
+    if (!IsValidAddress(addr)) return false;
+    vm_size_t size = 0;
+    kern_return_t error = vm_read_overwrite(mach_task_self(), (vm_address_t)addr, len, (vm_address_t)buffer, &size);
+    if(error != KERN_SUCCESS || size != len)
+    {
+        return false;
+    }
+    return true;
+}
+
+bool _write(long addr, void *buffer, int len)
+{
+   if (!IsValidAddress(addr)) return false;
+    kern_return_t error = vm_write(mach_task_self(), (vm_address_t)addr, (vm_offset_t)buffer, (mach_msg_type_number_t)len);
+    if(error != KERN_SUCCESS)
+    {
+        return false;
+    }
+    return true;
+}
 
 namespace Memory
 {
-	inline uint64_t ModuleBaseAddress = 0;
+	inline uint64_t ModuleBaseAddress = (uint64_t)_dyld_get_image_header(0);
 	inline pid_t ProcessID = 0;
-	inline mach_port_t Task = 0;
+	inline mach_port_t Task = m;
 }
 
 template <typename R> R Read(uint64_t address)
@@ -40,6 +69,7 @@ std::string read_stringRPM(uint64_t address)
 	return nameString;
 }
 
+//need extra entitlements- TODO: refactor
 uint64_t FindModuleBaseAddress(pid_t ProcessID, const char* modulename)
 {
 	const struct mach_header *mh = NULL;
