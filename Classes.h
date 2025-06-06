@@ -2,11 +2,6 @@
 
 #include <cstdint>
 #include <cmath>
-#include <string>
-
-using UINT = unsigned int;
-using WORD = uint16_t;
-using BOOL = int;
 
 #define M_PI 3.14159265359
 #define UCONST_PI 3.1415926
@@ -32,9 +27,9 @@ typedef struct D3DXMATRIX : public D3DMATRIX
 {
 public:
 	D3DXMATRIX() {};
-	D3DXMATRIX(CONST double*);
-	D3DXMATRIX(CONST D3DMATRIX&);
-	D3DXMATRIX(CONST WORD*);
+	D3DXMATRIX(const double*);
+	D3DXMATRIX(const D3DMATRIX&);
+	D3DXMATRIX(const WORD*);
 	D3DXMATRIX(double _11, double _12, double _13, double _14,
 		double _21, double _22, double _23, double _24,
 		double _31, double _32, double _33, double _34,
@@ -47,12 +42,12 @@ public:
 
 	// casting operators
 	operator double* ();
-	operator CONST double* () const;
+	operator const double* () const;
 
 	// assignment operators
-	D3DXMATRIX& operator *= (CONST D3DXMATRIX&);
-	D3DXMATRIX& operator += (CONST D3DXMATRIX&);
-	D3DXMATRIX& operator -= (CONST D3DXMATRIX&);
+	D3DXMATRIX& operator *= (const D3DXMATRIX&);
+	D3DXMATRIX& operator += (const D3DXMATRIX&);
+	D3DXMATRIX& operator -= (const D3DXMATRIX&);
 	D3DXMATRIX& operator *= (double);
 	D3DXMATRIX& operator /= (double);
 
@@ -61,16 +56,16 @@ public:
 	D3DXMATRIX operator - () const;
 
 	// binary operators
-	D3DXMATRIX operator * (CONST D3DXMATRIX&) const;
-	D3DXMATRIX operator + (CONST D3DXMATRIX&) const;
-	D3DXMATRIX operator - (CONST D3DXMATRIX&) const;
+	D3DXMATRIX operator * (const D3DXMATRIX&) const;
+	D3DXMATRIX operator + (const D3DXMATRIX&) const;
+	D3DXMATRIX operator - (const D3DXMATRIX&) const;
 	D3DXMATRIX operator * (double) const;
 	D3DXMATRIX operator / (double) const;
 
-	friend D3DXMATRIX operator * (double, CONST D3DXMATRIX&);
+	friend D3DXMATRIX operator * (double, const D3DXMATRIX&);
 
-	BOOL operator == (CONST D3DXMATRIX&) const;
-	BOOL operator != (CONST D3DXMATRIX&) const;
+	BOOL operator == (const D3DXMATRIX&) const;
+	BOOL operator != (const D3DXMATRIX&) const;
 
 } D3DXMATRIX, * LPD3DXMATRIX;
 
