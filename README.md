@@ -8,7 +8,7 @@ The **UE4Source_iOS** project aims to port external Unreal Engine 4 (UE4) source
 
 - `Cheats.cpp` / `Cheats.h`: Implements cheat functionalities tailored for iOS compatibility.
 - `Tweak.xm`: (Equivalent to Windows' `Main.cpp`) Serves as the primary entry point for the dynamic library.
-- `Memory.cpp` / `Memory.h`: Manages memory operations, ensuring efficient handling within the iOS environment.
+- `Memory.h`: Manages memory operations. Module base retrieval is handled by MemX-Jailed.
 - `Offsets.h`: Contains memory offset definitions pertinent to iOS.
 - `classes.cpp`: Provides implementations for the classes defined in `Classes.h`.
 - `Classes.h`: Defines core classes and data structures essential for the project.

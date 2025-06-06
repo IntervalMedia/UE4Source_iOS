@@ -1,11 +1,12 @@
 #pragma once
 
 #include <cstdint>
-#include <corecrt_math.h>
-#include <intrin.h>
+#include <cmath>
 #include <string>
-#include <Windows.h>
-#include <d3d9types.h>
+
+using UINT = unsigned int;
+using WORD = uint16_t;
+using BOOL = int;
 
 #define M_PI 3.14159265359
 #define UCONST_PI 3.1415926
