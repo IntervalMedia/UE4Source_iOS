@@ -2,14 +2,6 @@
 
 #include <cstdint>
 #include <cmath>
-#ifdef _MSC_VER
-#  include <intrin.h>
-#endif
-#include <string>
-
-using BOOL = bool;
-using WORD = uint16_t;
-using UINT = unsigned int;
 
 #define M_PI 3.14159265359
 #define UCONST_PI 3.1415926
