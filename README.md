@@ -15,4 +15,6 @@ The **UE4Source_iOS** project aims to port external Unreal Engine 4 (UE4) source
 
 ## Build and Package
 
+The repository includes a Theos `Makefile` and packaging files inside the `DEBIAN` directory for building a jailbreak tweak.
+
 - Utilize Theos to build a dynamic library and create a jailbreak-compatible tweak package as a `.deb` file.
