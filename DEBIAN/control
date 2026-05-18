@@ -1,0 +1,8 @@
+Package: com.example.ue4sourceios
+Name: UE4SourceiOS
+Architecture: iphoneos-arm
+Description: UE4 source cheat tweak for iOS
+Maintainer: Example <example@example.com>
+Depends: mobilesubstrate
+Version: 1.0
+Section: Tweaks
