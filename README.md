@@ -2,7 +2,7 @@
 
 ## Overview
 
-Currently a WIP, the **UE4Source_iOS** project aims to port external Unreal Engine 4 (UE4) source code, originally developed for Windows, to be compatible with Apple's iOS platform by creating a dynamic library (`.dylib`). This enables the integration of existing UE4 functionalities into iOS applications, facilitating cross-platform development and deployment.
+This project is currently a work in progress. **UE4Source_iOS** aims to port external Unreal Engine 4 (UE4) source code, originally developed for Windows, to be compatible with Apple's iOS platform by creating a dynamic library (`.dylib`). This enables the integration of existing UE4 functionalities into iOS applications, facilitating cross-platform development and deployment.
 
 ## Repository Contents
 
@@ -40,8 +40,8 @@ void example_read(uint64_t addr) {
 ```
 ## To Do
 
-1. implement a rendering platform and cheat menu (Dear ImGui with Metal for iOS)
-2. implement Cheat features inside Cheats.cpp
+1. Implement a rendering platform and cheat menu (Dear ImGui with Metal for iOS)
+2. Implement Cheat features inside Cheats.cpp
     - draw a player and game item ESP
     - Aimbot
     - game speed and Field of view/camera modifications
