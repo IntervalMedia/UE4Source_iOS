@@ -40,7 +40,7 @@ void example_read(uint64_t addr) {
 ```
 ## To Do
 
-1. implement a rendering platform and cheat menu (dearImgui with Metal for iOS)
+1. implement a rendering platform and cheat menu (Dear ImGui with Metal for iOS)
 2. implement Cheat features inside Cheats.cpp
     - draw a player and game item ESP
     - Aimbot
